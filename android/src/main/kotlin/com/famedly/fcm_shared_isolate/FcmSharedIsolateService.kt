@@ -1,9 +1,12 @@
 package com.famedly.fcm_shared_isolate
 
 import android.os.Handler
+import android.util.Log
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import io.flutter.embedding.engine.FlutterEngine
+
+private const val TAG = "FcmSharedIsolateService"
 
 abstract class FcmSharedIsolateService : FirebaseMessagingService() {
     abstract fun getEngine(): FlutterEngine
@@ -21,6 +24,7 @@ abstract class FcmSharedIsolateService : FirebaseMessagingService() {
     }
 
     override fun onMessageReceived(message: RemoteMessage) {
+        Log.i(TAG, "onMessageReceived")
         handler.post {
             getPlugin().message(message.getData())
         }

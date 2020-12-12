@@ -1,5 +1,6 @@
 package com.famedly.fcm_shared_isolate
 
+import android.util.Log
 import androidx.annotation.NonNull
 import com.google.firebase.messaging.FirebaseMessaging
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -7,6 +8,8 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
+
+private const val TAG = "FcmSharedIsolatePlugin"
 
 class FcmSharedIsolatePlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel: MethodChannel
@@ -38,6 +41,7 @@ class FcmSharedIsolatePlugin : FlutterPlugin, MethodCallHandler {
     }
 
     fun message(@NonNull data: Map<String, String>) {
+        Log.i(TAG, "message")
         channel.invokeMethod("message", data)
     }
 
