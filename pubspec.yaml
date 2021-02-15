@@ -22,3 +22,5 @@ flutter:
       android:
         package: com.famedly.fcm_shared_isolate
         pluginClass: FcmSharedIsolatePlugin
+      ios:
+        pluginClass: FcmSharedIsolatePlugin
