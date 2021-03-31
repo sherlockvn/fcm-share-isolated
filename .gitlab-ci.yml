@@ -9,6 +9,6 @@ code_analyze:
     - docker
   stage: coverage
   script:
-    - flutter pub get
-    - flutter analyze
+    #- flutter pub get
+    #- flutter analyze
     - flutter format lib/ test/ --set-exit-if-changed

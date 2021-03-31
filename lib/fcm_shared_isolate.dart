@@ -24,6 +24,7 @@ class FcmSharedIsolate {
       final String newToken = call.arguments;
       _onNewToken?.call(newToken);
     }
+    return null;
   }
 
   Future<String> getToken() async {
