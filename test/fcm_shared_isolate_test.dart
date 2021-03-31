@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fcm_shared_isolate/fcm_shared_isolate.dart';
 
 void main() {
-  const MethodChannel channel = MethodChannel('fcm_shared_isolate');
+  const channel = MethodChannel('fcm_shared_isolate');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

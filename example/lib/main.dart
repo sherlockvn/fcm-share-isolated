@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:fcm_shared_isolate/fcm_shared_isolate.dart';
 
 void main() {
