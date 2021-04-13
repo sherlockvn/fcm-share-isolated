@@ -3,5 +3,7 @@
 
 .packages
 .pub/
+pubspec.lock
+.flutter-plugins*
 
 build/
