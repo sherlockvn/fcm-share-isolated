@@ -20,12 +20,9 @@ import FirebaseMessaging
         switch call.method {
         case "getToken":
             Messaging.messaging().delegate = self
-            print("Getting a token")
             Messaging.messaging().token { token, error in
-                print("Some result")
                 if let error = error {
-                    print("Some error")
-                    result(FlutterError(code: "unknown", message: nil, details: nil))
+                    result(FlutterError(code: "unknown", message: nil, details: error.localizedDescription))
                 } else if let token = token {
                     print("Some ok")
                     result(String(token))
