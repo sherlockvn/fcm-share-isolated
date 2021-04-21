@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 class FcmSharedIsolate {
@@ -42,5 +44,23 @@ class FcmSharedIsolate {
       _msg.forEach(onMessage);
       _msg.clear();
     }
+  }
+
+  Future<bool> requestPermission(
+      {bool sound = true,
+      bool alert = true,
+      bool badge = true,
+      bool provisional = false}) async {
+    if (kIsWeb || !Platform.isIOS) {
+      return true;
+    }
+
+    final bool result = await _channel.invokeMethod('requestPermission', {
+      'sound': sound,
+      'alert': alert,
+      'badge': badge,
+      'provisional': provisional,
+    });
+    return result;
   }
 }
