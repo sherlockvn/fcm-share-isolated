@@ -1,4 +1,4 @@
-image: registry.gitlab.com/famedly/containers/flutter-dockerimages:stable
+image: registry.gitlab.com/famedly/company/frontend/flutter-dockerimages/flutter/stable
 
 stages:
   - test
