@@ -95,3 +95,28 @@ class FcmPushService : FcmSharedIsolateService() {
 ```
 
 Note that the `.FcmPushService` has to match the class name defined in the file above
+
+## Usage
+
+```dart
+// Create the instance
+final fcm = FcmSharedIsolate();
+
+// Only for iOS you need to request permissions:
+if (Platform.isIOS) {
+    await fcm.requestPermission();
+}
+
+// Get the push token:
+await fcm.getToken();
+
+// Set the listeners
+fcm.setListeners(
+    onMessage: onMessage,
+    onNewToken: onNewToken,
+);
+
+Future<void> onMessage(Map<dynamic, dynamic> message) async {
+    print('Got a new message from firebase cloud messaging: $message');
+}
+```
